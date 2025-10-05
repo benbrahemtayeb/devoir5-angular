@@ -1,0 +1,35 @@
+<br><div style="margin-left: 37%;" class="container">
+    <div>
+        <h1>Ajouter un Joueur:</h1>
+        <br>
+    </div>
+    <form>
+        <div class="col-sm-2 col-md-2 col-lg-2">
+            <label>ID Joueur</label>
+            <input type="text" [(ngModel)]="newJoueur.idJoueur" name="idJoueur" class="form-control">
+        </div>
+        <div class="col-sm-4 col-md-4 col-lg-4">
+            <label>Nom Joueur</label>
+            <input type="text" [(ngModel)]="newJoueur.nomJoueur" name="nomJoueur" class="form-control">
+        </div>
+        <div class="col-sm-2 col-md-2 col-lg-2">
+            <label>Club</label>
+            <input type="text" [(ngModel)]="newJoueur.nomEquipe" name="nomEquipe" class="form-control">
+        </div>
+        <div class="col-sm-4 col-md-4 col-lg-4">
+            <label>Date Transfert</label>
+            <input type="date" [(ngModel)]="newJoueur.dateTransfert" name="dateTransfert" class="form-control">
+        </div>
+        <div class="col-sm-2 col-md-2 col-lg-2">
+            <label>Durée de Contrat</label>
+            <input type="text" [(ngModel)]="newJoueur.dureContrat" name="dureContrat" class="form-control">
+        </div>
+        <div class="col-sm-2 col-md-2 col-lg-2">
+            <label>Prix de Joueur</label>
+            <input type="number" [(ngModel)]="newJoueur.prixJoueur" name="prixJoueur" class="form-control">
+        </div>
+        <div class="mt-2">
+            <button type="submit" (click)="addJoueur()" class="btn btn-success">Ajouter</button>
+        </div>
+    </form>
+</div>

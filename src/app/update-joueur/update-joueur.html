@@ -1,0 +1,35 @@
+<br><div style="margin-left: 37%;" class="container">
+    <div>
+        <h1>Modifier un Joueur:</h1>
+        <br>
+    </div>
+    <form>
+        <div class="col-sm-2 col-md-2 col-lg-2">
+            <label>ID Joueur</label>
+            <input readonly type="text" [(ngModel)]="currentJoueur.idJoueur" name="idJoueur" class="form-control">
+        </div>
+        <div class="col-sm-4 col-md-4 col-lg-4">
+            <label>Nom Joueur</label>
+            <input readonly type="text" [(ngModel)]="currentJoueur.nomJoueur" name="nomJoueur" class="form-control">
+        </div>
+        <div class="col-sm-2 col-md-2 col-lg-2">
+            <label>Club</label>
+            <input type="text" [(ngModel)]="currentJoueur.nomEquipe" name="nomEquipe" class="form-control">
+        </div>
+        <div class="col-sm-4 col-md-4 col-lg-4">
+            <label>Date Transfert</label>
+            <input type="date" [ngModel]="currentJoueur.dateTransfert | date: 'yyyy-MM-dd'" (ngModelChange)=" currentJoueur.dateTransfert= $event" name="dateTransfert" class="form-control">
+        </div>
+        <div class="col-sm-2 col-md-2 col-lg-2">
+            <label>Durée de Contrat</label>
+            <input type="text" [(ngModel)]="currentJoueur.dureContrat" name="dureContrat" class="form-control">
+        </div>
+        <div class="col-sm-2 col-md-2 col-lg-2">
+            <label>Prix de Joueur</label>
+            <input type="number" [(ngModel)]="currentJoueur.prixJoueur" name="prixJoueur" class="form-control">
+        </div>
+        <div class="mt-2">
+            <button type="submit" (click)="updateJoueur()" class="btn btn-success">Modifier</button>
+        </div>
+    </form>
+</div>

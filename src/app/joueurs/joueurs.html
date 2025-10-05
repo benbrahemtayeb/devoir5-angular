@@ -1,0 +1,29 @@
+<br><div class="container">
+    <div class="card shadow mb-4">
+        <div class="card-body">
+            <table class="table table-striped">
+                <thead>
+                    <tr> <th>Id</th><th>Name</th> <th>Club</th> <th>Transfer Date</th> <th>Contract Duration</th> <th>Market Value</th></tr>
+                </thead>
+                @for(joueur of joueurs; track joueur.idJoueur){
+                    <tbody>
+                        <tr>
+                            <td>{{joueur.idJoueur}}</td>
+                            <td>{{joueur.nomJoueur}}</td>
+                            <td>{{joueur.nomEquipe}}</td>
+                            <td>{{joueur.dateTransfert | date:'dd/MM/yyyy'}}</td>
+                            <td>{{joueur.dureContrat}}</td>
+                            <td>€{{joueur.prixJoueur}}M</td>
+                            <td><a class="btn btn-success"  [routerLink]="['/updateJoueur',joueur.idJoueur]">Modifier</a></td>
+                            <td><a class="btn btn-danger" (click)="supprimerJoueur(joueur)">Supprimer</a></td>
+                        </tr>
+                    </tbody>
+                }
+                @empty {
+                    <h1>Aucun joueur trouvé !</h1>
+                    }
+              
+            </table>
+        </div>
+    </div>
+</div>
