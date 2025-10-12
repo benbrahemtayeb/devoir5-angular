@@ -12,9 +12,13 @@
             <label>Nom Joueur</label>
             <input type="text" [(ngModel)]="newJoueur.nomJoueur" name="nomJoueur" class="form-control">
         </div>
-        <div class="col-sm-2 col-md-2 col-lg-2">
-            <label>Club</label>
-            <input type="text" [(ngModel)]="newJoueur.nomEquipe" name="nomEquipe" class="form-control">
+        <div class="col-sm-4 col-md-4 col-lg-4">
+            <label>Equipe</label>
+            <select class="form-control form-control-lg" id="idEquipe" name="idEquipe" [(ngModel)]="newIdEquipe">
+                @for(eqp of equipes; track eqp.idEquipe){
+                    <option [value]="eqp.idEquipe">{{eqp.nomEquipe}}</option>
+                }
+            </select>
         </div>
         <div class="col-sm-4 col-md-4 col-lg-4">
             <label>Date Transfert</label>
@@ -28,6 +32,7 @@
             <label>Prix de Joueur</label>
             <input type="number" [(ngModel)]="newJoueur.prixJoueur" name="prixJoueur" class="form-control">
         </div>
+        
         <div class="mt-2">
             <button type="submit" (click)="addJoueur()" class="btn btn-success">Ajouter</button>
         </div>

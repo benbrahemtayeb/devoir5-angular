@@ -10,11 +10,15 @@
         </div>
         <div class="col-sm-4 col-md-4 col-lg-4">
             <label>Nom Joueur</label>
-            <input readonly type="text" [(ngModel)]="currentJoueur.nomJoueur" name="nomJoueur" class="form-control">
+            <input type="text" [(ngModel)]="currentJoueur.nomJoueur" name="nomJoueur" class="form-control">
         </div>
-        <div class="col-sm-2 col-md-2 col-lg-2">
-            <label>Club</label>
-            <input type="text" [(ngModel)]="currentJoueur.nomEquipe" name="nomEquipe" class="form-control">
+        <div class="col-sm-4 col-md-4 col-lg-4">
+            <label>Equipe</label>
+            <select class="form-control form-control-lg" [(ngModel)]="updatedEquipeId" id="idEquipe" name="idEquipe">
+                @for(equipe of equipes; track equipe.idEquipe){
+                    <option [value]="equipe.idEquipe">{{equipe.nomEquipe}}</option>
+                }
+            </select>
         </div>
         <div class="col-sm-4 col-md-4 col-lg-4">
             <label>Date Transfert</label>

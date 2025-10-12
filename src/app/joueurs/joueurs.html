@@ -1,16 +1,18 @@
 <br><div class="container">
     <div class="card shadow mb-4">
         <div class="card-body">
+            <h1 style="text-align: center;">La liste des Joueurs</h1>
+            <hr>
             <table class="table table-striped">
                 <thead>
-                    <tr> <th>Id</th><th>Name</th> <th>Club</th> <th>Transfer Date</th> <th>Contract Duration</th> <th>Market Value</th></tr>
+                    <tr> <th>Id</th><th>Name</th> <th>Club</th> <th>Transfer Date</th> <th>Contract Duration</th> <th>Market Value</th> </tr>
                 </thead>
                 @for(joueur of joueurs; track joueur.idJoueur){
                     <tbody>
                         <tr>
                             <td>{{joueur.idJoueur}}</td>
                             <td>{{joueur.nomJoueur}}</td>
-                            <td>{{joueur.nomEquipe}}</td>
+                            <td>{{joueur.equipe?.nomEquipe}}</td>
                             <td>{{joueur.dateTransfert | date:'dd/MM/yyyy'}}</td>
                             <td>{{joueur.dureContrat}}</td>
                             <td>€{{joueur.prixJoueur}}M</td>
