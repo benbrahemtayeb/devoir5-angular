@@ -1,11 +1,20 @@
 <br><div class="container">
+    <div class="col-sm-4 col-md-4 col-lg-4 mb-4">
+        <label>Equipes</label>
+        <select class="form-control form-control-lg" id="idEqp" name="idEqp" [(ngModel)]="idEquipe" (change)="onChange()">
+            <option *ngFor="let eqp of equipes" value={{eqp.idEquipe}}>{{ eqp.nomEquipe }}</option>
+        </select>
+    </div>
+
     <div class="card shadow mb-4">
         <div class="card-body">
             <h1 style="text-align: center;">La liste des Joueurs</h1>
             <hr>
             <table class="table table-striped">
                 <thead>
-                    <tr> <th>ID</th><th>Name</th> <th>Club</th> <th>Transfer Date</th> <th>Contract Duration</th> <th>Market Value</th> </tr>
+                    @if(joueurs?.length!=0){
+                        <tr> <th>Id</th><th>Name</th> <th>Club</th> <th>Transfer Date</th> <th>Contract Duration</th> <th>Market Value</th> </tr>
+                    }
                 </thead>
                 @for(joueur of joueurs; track joueur.idJoueur){
                     <tbody>
@@ -22,7 +31,7 @@
                     </tbody>
                 }
                 @empty {
-                    <h1>Aucun joueur trouvé !</h1>
+                    <h1 style="color: red;">Aucun joueur trouvé !</h1>
                     }
               
             </table>
