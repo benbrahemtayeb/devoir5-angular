@@ -73,4 +73,9 @@ export class joueur {
     });
     return this.joueursRecherche;
   }
+  rechercherParNom(nom: string): Joueur[] {
+    return this.joueurs.filter(j => 
+      j.nomJoueur?.toLowerCase().includes(nom.toLowerCase())
+    );
+  }
 }

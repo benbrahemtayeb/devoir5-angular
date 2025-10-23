@@ -1,1 +1,39 @@
-<p>recherche-par-nom works!</p>
+<form class="form-inline">
+    <div class="form-group mx-sm-3 mb-2 mt-2 ">
+        <label style="font-weight: bolder;">Nom Joueur en tapant</label>
+        <input class="form-control" #searchTerm (keyup)="onKeyUp(searchTerm.value)" placeholder="Tapez ici">
+    </div>
+</form>
+<br>
+<div class="card shadow mb-4">
+    <div class="card-body">
+        <h1 style="text-align: center;">La liste des Joueurs</h1>
+        <hr>
+        <table class="table table-striped">
+            <thead>
+                @if(joueurs?.length!=0){
+                    <tr> <th>Id</th><th>Name</th> <th>Club</th> <th>Transfer Date</th> <th>Contract Duration</th> <th>Market Value</th> </tr>
+                }
+            </thead>
+            @for(joueur of joueurs; track joueur.idJoueur){
+                <tbody>
+                    <tr>
+                        <td>{{joueur.idJoueur}}</td>
+                        <td>{{joueur.nomJoueur}}</td>
+                        <td>{{joueur.equipe?.nomEquipe}}</td>
+                        <td>{{joueur.dateTransfert | date:'dd/MM/yyyy'}}</td>
+                        <td>{{joueur.dureContrat}}</td>
+                        <td>€{{joueur.prixJoueur}}M</td>
+                        <td><a class="btn btn-success"  [routerLink]="['/updateJoueur',joueur.idJoueur]">Modifier</a></td>
+                        <td><a class="btn btn-danger" (click)="supprimerJoueur(joueur)">Supprimer</a></td>
+                    </tr>
+                </tbody>
+            }
+            @empty {
+                <h1 style="color: red;">Aucun joueur trouvé !</h1>
+                }
+          
+        </table>
+    </div>
+</div>
+    
