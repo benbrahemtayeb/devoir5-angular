@@ -1,7 +1,13 @@
-<form class="form-inline">
+<!--<form class="form-inline">
     <div class="form-group mx-sm-3 mb-2 mt-2 ">
         <label style="font-weight: bolder;">Nom Joueur en tapant</label>
         <input class="form-control" #searchTerm (keyup)="onKeyUp(searchTerm.value)" placeholder="Tapez ici">
+    </div>
+</form>-->
+<form class="form-inline">
+    <div class="form-group mx-sm-3 mb-2 mt-2 ">
+        <label>Nom Joueur en tapant</label>
+        <input #nom [(ngModel)]="searchTerm" name="searchTerm" class="form-control" placeholder="Tapez ici">
     </div>
 </form>
 <br>
@@ -11,11 +17,11 @@
         <hr>
         <table class="table table-striped">
             <thead>
-                @if(joueurs?.length!=0){
+                @if(joueurs.length!=0){
                     <tr> <th>Id</th><th>Name</th> <th>Club</th> <th>Transfer Date</th> <th>Contract Duration</th> <th>Market Value</th> </tr>
                 }
             </thead>
-            @for(joueur of joueurs; track joueur.idJoueur){
+            @for(joueur of joueurs | searchFilter: searchTerm ; track joueur.idJoueur){
                 <tbody>
                     <tr>
                         <td>{{joueur.idJoueur}}</td>
@@ -30,7 +36,7 @@
                 </tbody>
             }
             @empty {
-                <h1 style="color: red;">Aucun joueur trouvé !</h1>
+                <h1 style="color: red;">Aucun joueur trouvé!</h1>
                 }
           
         </table>
